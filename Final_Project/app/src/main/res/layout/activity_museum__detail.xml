@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Museum_Detail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight="2"
+            android:background="#F44336"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/det"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="博物馆名称"
+                android:textSize="30sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="博物馆编号"
+                android:textSize="25sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/fen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="25sp"
+                android:layout_marginLeft="10dp"
+                android:text="评分："/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="博物馆地址:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/opentime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="博物馆开放时间:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="博物馆电话:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/curator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="博物馆馆长:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/othermessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="博物馆其他信息:"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <Button
+            android:id="@+id/but"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新闻"
+            />
+    </LinearLayout>
+</LinearLayout>
