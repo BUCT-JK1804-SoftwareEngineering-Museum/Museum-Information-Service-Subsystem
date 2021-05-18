@@ -16,75 +16,46 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         />
-    <TextView
-        android:id="@+id/tv_10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="展览编号"
-        android:layout_marginLeft="15dp"
-        android:textSize="18sp"
-        android:textColor="@color/gray"
-        android:layout_marginTop="65dp"
-        />
-    <View
-        android:id="@+id/Vi_1"
+
+    <ImageView
+        android:id="@+id/img1"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginTop="105dp"
         android:layout_marginLeft="20dp"
-        android:background="@color/teal_200"
         />
 
     <TextView
         android:id="@+id/tv_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/Vi_1"
+        android:layout_toRightOf="@id/img1"
         android:layout_marginTop="70dp"
         android:textSize="24sp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="10dp"
         android:text="名称："
         />
-    <TextView
-        android:id="@+id/tv_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:layout_toRightOf="@id/Vi_1"
-        android:layout_marginLeft="15dp"
-        android:textSize="24sp"
-        android:text="博物馆编号："
-        />
+
     <TextView
         android:id="@+id/tv_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_toRightOf="@id/Vi_1"
         android:layout_marginLeft="15dp"
-        android:textSize="24sp"
+        android:layout_marginTop="150dp"
+        android:layout_toRightOf="@id/img1"
         android:text="展览时间："
-        />
+        android:textSize="24sp" />
     <TextView
         android:id="@+id/tv_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="190dp"
-        android:layout_toRightOf="@id/Vi_1"
+        android:layout_toRightOf="@id/img1"
         android:layout_marginLeft="15dp"
         android:textSize="24sp"
         android:text="博物馆名："
         />
-    <TextView
-        android:id="@+id/tv_9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
-        android:layout_toRightOf="@id/Vi_1"
-        android:layout_marginLeft="15dp"
-        android:textSize="24sp"
-        android:text="评分："
-        />
+
     <TextView
         android:id="@+id/tv_5"
         android:layout_width="wrap_content"
@@ -104,7 +75,7 @@
         android:layout_marginTop="280dp"
         android:layout_marginLeft="10dp"
         android:background="@color/purple_200"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:text="请在此处输入博物馆简介"
         />
     <TextView
@@ -118,11 +89,10 @@
         android:text="------展览图片------"
         android:textColor="#DAA520"
         />
-    <View
-        android:id="@+id/Vi_3"
+    <ImageView
+        android:id="@+id/img2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@color/purple_200"
         android:layout_marginTop="565dp"
         android:layout_centerHorizontal="true"
         />

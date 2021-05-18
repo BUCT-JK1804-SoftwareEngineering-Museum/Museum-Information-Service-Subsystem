@@ -2,14 +2,18 @@ package com.final_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import java.io.IOException;
 import okhttp3.*;
@@ -17,8 +21,18 @@ import table.Museum;
 public class Museum_Detail extends AppCompatActivity {
     private TextView view1;
     private TextView view2;
+    private TextView view3;
+    private TextView view4;
+    private TextView view5;
+    private TextView view6;
+    private TextView view7;
     private ImageView img;
     private Handler handler;
+    private Button mdnews;
+    private Button mdexhi;
+    private Button mdobj;
+    private Button mdeva;
+    private Button mcom;
     Museum mus;
 
     @Override
@@ -27,10 +41,20 @@ public class Museum_Detail extends AppCompatActivity {
         setContentView(R.layout.activity_museum__detail);
         view1 = findViewById(R.id.det);
         view2 = findViewById(R.id.fen);
+        view3 = findViewById(R.id.addr);
+        view4 = findViewById(R.id.opentime);
+        view5 = findViewById(R.id.phonenum);
+        view6 = findViewById(R.id.curator);
+        view7 = findViewById(R.id.othermessage);
         img = findViewById(R.id.img);
-        Button button = (Button) findViewById(R.id.but);
-        int i = 0;
-        String mus_name = "瑷珲历史陈列馆";
+        mdnews = (Button) findViewById(R.id.news);
+        mdexhi = (Button) findViewById(R.id.exhibition);
+        mdobj = (Button) findViewById(R.id.object);
+        mdeva = (Button) findViewById(R.id.wevaluation);
+        mcom = (Button) findViewById(R.id.vcomment);
+        setListeners();
+//        int i = 0;
+        String mus_name = "首都博物馆";
         GetMus m = new GetMus(mus_name);
 
         handler = new Handler() {
@@ -45,6 +69,13 @@ public class Museum_Detail extends AppCompatActivity {
                             Museum result = (Museum) msg.obj;
                             view1.setText(result.getMus_name());
                             view2.setText("评分：" + result.getMus_grade());
+                            view3.setText("博物馆地址:"+result.getMus_address());
+                            view4.setText("博物馆开放时间:"+result.getMus_time());
+                            view5.setText("博物馆电话:"+result.getMus_phone());
+                            view6.setText("博物馆馆长:"+result.getMus_master());
+                            view7.setText("博物馆其他信息:"+result.getMus_remark());
+                            Glide.with(Museum_Detail.this).load(result.getMus_picture()).into(img);
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -111,5 +142,43 @@ public class Museum_Detail extends AppCompatActivity {
         Museum data = gson.fromJson(jsonData, Museum.class);
         // data就是整个JSON数据映射的一个对象
         return data;
+    }
+
+    private void setListeners() {
+        mdnews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Museum_Detail.this, NewsDetail.class);
+                startActivity(intent);
+            }
+        });
+        mdexhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Museum_Detail.this, Exhibition_Detail.class);
+                startActivity(intent);
+            }
+        });
+        mdobj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Museum_Detail.this, Object_Detail.class);
+                startActivity(intent);
+            }
+        });
+        mdeva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Museum_Detail.this, WComment.class);
+                startActivity(intent);
+            }
+        });
+        mcom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Museum_Detail.this,Evaluation.class);
+                startActivity(intent);
+            }
+        });
     }
 }

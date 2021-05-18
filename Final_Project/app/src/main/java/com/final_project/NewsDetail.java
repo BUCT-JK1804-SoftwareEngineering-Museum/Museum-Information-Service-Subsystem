@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,17 +26,31 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import table.Exhibition;
 import table.New;
 
 public class NewsDetail extends AppCompatActivity {
+    private TextView view2;
+    private TextView view3;
+    private TextView view4;
+    private TextView view5;
+    private TextView view6;
+    private TextView view7;
     private Handler handler;
+    private ImageView imageView1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_object__detail);
-        GetNew ne=new GetNew("瑷珲历史陈列馆");
+        setContentView(R.layout.activity_news_detail);
+        view2 = findViewById(R.id.sd2);
+        view3 = findViewById(R.id.sd3);
+        view4 = findViewById(R.id.sd4);
+        view5 = findViewById(R.id.sd5);
+        view6 = findViewById(R.id.sd6);
+        view7 = findViewById(R.id.sd7);
+        imageView1= findViewById(R.id.img1);
+        GetNew ne=new GetNew("首都博物馆");
 
         handler = new Handler() {
             @SuppressLint("HandlerLeak")
@@ -44,8 +61,15 @@ public class NewsDetail extends AppCompatActivity {
                     case 1:
                         try {
                             //获取结果
-                            New result = (New) msg.obj;
-
+                            List<New> result = (List<New>) msg.obj;
+                            New f=result.get(0);
+                            view2.setText( "新闻类型："+f.getNew_level());
+                            view3.setText( f.getNew_title());
+                            view4.setText("发布人："+ f.getNew_publisher());
+                            view5.setText("发布时间："+ f.getNew_time());
+                            view6.setText( f.getNew_content());
+                            view7.setText( "爬取源："+f.getNew_source());
+                            Glide.with(NewsDetail.this).load(f.getNew_pic()).into(imageView1);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -60,6 +84,7 @@ public class NewsDetail extends AppCompatActivity {
     public class GetNew {
         private List<New> n;
 
+
         public GetNew(String name) {
             Thread t = new Thread(new Runnable() {
                 @Override
@@ -70,7 +95,7 @@ public class NewsDetail extends AppCompatActivity {
                     n = parseJSONList_new(s);
                     System.out.println(n.toString());
                     Message msg = new Message();
-                    msg.what = 4;
+                    msg.what = 1;
                     msg.obj=n;
                     handler.sendMessage(msg);
                 }

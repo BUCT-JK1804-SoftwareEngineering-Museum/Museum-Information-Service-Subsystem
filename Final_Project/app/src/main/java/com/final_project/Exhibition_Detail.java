@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,18 +26,28 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import table.Collection;
 import table.Exhibition;
 
 public class Exhibition_Detail extends AppCompatActivity {
     private Handler handler;
-
+    private TextView view1;
+    private TextView view3;
+    private TextView view4;
+    private TextView view5;
+    private ImageView imageView1;
+    private ImageView imageView2;
+    int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exhibition__detail);
-        GetExhibition ex=new GetExhibition("瑷珲历史陈列馆");
-
+        GetExhibition ex=new GetExhibition("首都博物馆");
+        view1 = findViewById(R.id.tv_2);
+        view3=findViewById(R.id.tv_8);
+        view4=findViewById(R.id.tv_4);
+        view5=findViewById(R.id.tv_6);
+        imageView1=findViewById(R.id.img1);
+        imageView2=findViewById(R.id.img2);
         handler = new Handler() {
             @SuppressLint("HandlerLeak")
             @Override
@@ -44,7 +57,14 @@ public class Exhibition_Detail extends AppCompatActivity {
                     case 1:
                         try {
                             //获取结果
-                            Exhibition result = (Exhibition) msg.obj;
+                            List<Exhibition> result = (List<Exhibition>) msg.obj;
+                            Exhibition t=result.get(i);
+                            view1.setText("展览名称："+t.getExh_name());
+                            view3.setText("展览时间："+t.getExh_time());
+                            view4.setText("博物馆名称："+t.getMus_name());
+                            view5.setText(t.getExh_info());
+                            Glide.with(Exhibition_Detail.this).load(t.getExh_picture()).into(imageView1);
+                            Glide.with(Exhibition_Detail.this).load(t.getExh_picture()).into(imageView2);
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -72,7 +92,7 @@ public class Exhibition_Detail extends AppCompatActivity {
                     e=  parseJSONList_Exh(s);
                     System.out.println(e.toString());
                     Message msg = new Message();
-                    msg.what = 3;
+                    msg.what = 1;
                     msg.obj=e;
                     handler.sendMessage(msg);
                 }

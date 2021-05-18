@@ -1,146 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-    <SearchView
-        android:id="@+id/search"
-        android:layout_width="300dp"
-        android:layout_margin="10dp"
-        android:layout_height="40dp"
-        android:background="#DFDFDF"/>
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_toRightOf="@id/search"
-        android:layout_margin="10dp"
-        />
-    <ImageView
-        android:id="@+id/list1"
-        android:layout_margin="20dp"
-        android:layout_width="140dp"
-        android:layout_below="@id/search"
-        android:layout_height="140dp"
-        android:background="#648BDA"
-        />
-    <TextView
-        android:layout_margin="20dp"
-        android:layout_width="280dp"
-        android:layout_height="140dp"
-        android:layout_below="@id/search"
-        android:layout_toEndOf="@id/list1"
-        android:text="博物馆2"
-        />
-    <ImageView
-        android:id="@+id/list2"
-        android:layout_margin="20dp"
-        android:layout_width="140dp"
-        android:layout_below="@id/list1"
-        android:layout_height="140dp"
-        android:background="#648BDA"
-        />
-    <TextView
-        android:layout_margin="20dp"
-        android:layout_width="280dp"
-        android:layout_height="140dp"
-        android:layout_below="@id/list1"
-        android:layout_toEndOf="@id/list2"
-        android:text="博物馆2"
-        />
-    <ImageView
-        android:id="@+id/list"
-        android:layout_margin="20dp"
-        android:layout_width="140dp"
-        android:layout_below="@id/list2"
-        android:layout_height="140dp"
-        android:background="#648BDA"
-        />
-    <TextView
-        android:layout_margin="20dp"
-        android:layout_width="280dp"
-        android:layout_height="140dp"
-        android:layout_below="@id/list2"
-        android:layout_toEndOf="@id/list"
-        android:text="博物馆3"
-        />
-    <View
-        android:id="@+id/img1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/list"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="10dp"
-        android:foreground="@android:drawable/ic_menu_view" />
-    <View
-        android:id="@+id/img2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/list"
-        android:layout_margin="10dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="10dp" android:layout_marginEnd="50dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@id/img1"
-        android:foreground="@android:drawable/ic_menu_sort_by_size" />
-    <View
-        android:id="@+id/img3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/list"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@id/img2"
-        android:foreground="@android:drawable/ic_menu_search" />
-    <View
-        android:id="@+id/img4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/list"
-        android:layout_margin="10dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@id/img3"
-        android:foreground="@android:drawable/ic_menu_upload" />
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/img1"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="300dp"
+            android:layout_margin="10dp"
+            android:layout_height="40dp"
+            android:text="博物馆信息服务子系统"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            />
+        <Button
+            android:id="@+id/More"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/title"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="更多"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="5">
+        <ListView
+            android:id="@+id/mainlist"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         >
         <Button
             android:id="@+id/Home_page"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_margin="10dp"
             android:layout_height="match_parent"
             android:text="⾸⻚"/>
         <Button
-            android:id="@+id/List"
-            android:layout_width="80dp"
+            android:id="@+id/Map"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_margin="10dp"
             android:layout_height="match_parent"
             android:layout_toEndOf="@id/Home_page"
-            android:text="列表"/>
-        <Button
-            android:id="@+id/Details"
-            android:layout_width="80dp"
-            android:layout_margin="10dp"
-            android:layout_height="match_parent"
-            android:layout_toEndOf="@id/List"
-            android:text="详情"/>
+            android:text="地图"/>
         <Button
             android:id="@+id/Rank"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_margin="10dp"
             android:layout_height="match_parent"
-            android:layout_toEndOf="@id/Details"
-            android:text="排⾏榜"/>
-    </RelativeLayout>
-</RelativeLayout>
+            android:layout_toEndOf="@id/Map"
+            android:text="排行榜"/>
+        <Button
+            android:id="@+id/Mine"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/Rank"
+            android:text="我的"/>
+    </LinearLayout>
+</LinearLayout>

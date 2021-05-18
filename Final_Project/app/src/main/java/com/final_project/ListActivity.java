@@ -36,7 +36,8 @@ public class ListActivity extends AppCompatActivity {
         mSearchView = findViewById(R.id.searchView);
         mlv1 = findViewById(R.id.List1);
         mlv1.setTextFilterEnabled(true);
-        mlv1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names));
+        ArrayAdapter a = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names);
+        mlv1.setAdapter(a);
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -54,16 +55,14 @@ public class ListActivity extends AppCompatActivity {
             }
         });
 
-        //MyListAdapter myListAdapter = new MyListAdapter(ListViewActivity.this);
-        //mlv1.setAdapter(myListAdapter);
         mlv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //String s = (String) myListAdapter.getItem(position);
-                //if(s == "瑷珲历史陈列馆"){
-                //    Intent intent = new Intent(ListViewActivity.this, detailsActivity.class);
-                //    startActivity(intent);
-                // }
+                String s = (String) a.getItem(position);
+                if(s == "瑷珲历史陈列馆"){
+                    Intent intent = new Intent(ListActivity.this, Museum_Detail.class);
+                    startActivity(intent);
+                }
             }
         });
     }

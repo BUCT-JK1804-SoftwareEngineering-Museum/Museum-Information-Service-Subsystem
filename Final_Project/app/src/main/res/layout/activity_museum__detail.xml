@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1.5"
         android:orientation="horizontal">
 
         <ImageView
@@ -19,7 +19,6 @@
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:layout_weight="2"
-            android:background="#F44336"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             />
@@ -40,15 +39,6 @@
                 android:textSize="30sp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"/>
-            <TextView
-                android:id="@+id/num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:text="博物馆编号"
-                android:textSize="25sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:id="@+id/fen"
@@ -58,11 +48,46 @@
                 android:textSize="25sp"
                 android:layout_marginLeft="10dp"
                 android:text="评分："/>
+            <Button
+                android:id="@+id/vcomment"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:text="点击此处查看评论"
+                />
 
         </LinearLayout>
+
     </LinearLayout>
 
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/exhibition"
+            android:layout_width="100dp"
+            android:layout_margin="10dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@+id/object"
+            android:text="展览"/>
+        <Button
+            android:id="@+id/object"
+            android:layout_width="100dp"
+            android:layout_margin="10dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:text="藏品"/>
+        <Button
+            android:id="@+id/news"
+            android:layout_width="100dp"
+            android:layout_margin="10dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/object"
+            android:text="新闻"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -115,10 +140,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"/>
         <Button
-            android:id="@+id/but"
+            android:id="@+id/wevaluation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="新闻"
+            android:text="评论"
             />
     </LinearLayout>
 </LinearLayout>

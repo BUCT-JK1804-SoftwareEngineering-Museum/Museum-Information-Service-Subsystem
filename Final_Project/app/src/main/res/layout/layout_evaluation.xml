@@ -9,13 +9,6 @@
     android:paddingBottom="10dp"
     android:padding="10dp">
 <!--    //此处 博物馆编号及名称如何处理-->
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="centerCrop"
-        android:background="#000"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,15 +39,15 @@
             android:textSize="24sp"
             android:textColor="@color/gray"
             />
+
         <TextView
             android:id="@+id/tv_comments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="评论："
-            android:textSize="24sp"
             android:layout_marginTop="5dp"
+            android:text="评论："
             android:textColor="@color/gray"
-            />
+            android:textSize="24sp" />
         <TextView
             android:id="@+id/tv_commentstime"
             android:layout_width="wrap_content"

@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -28,13 +31,22 @@ import table.Museum;
 
 public class Object_Detail extends AppCompatActivity {
     private Handler handler;
+    private TextView view1;
+    private TextView view4;
+    private TextView view5;
+    private ImageView imageView1;
+    private ImageView imageView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_object__detail);
-        GetCollection col=new GetCollection("瑷珲历史陈列馆");
-
+        GetCollection col=new GetCollection("首都博物馆");
+        view1 = findViewById(R.id.on);
+        view4 = findViewById(R.id.oy);
+        view5 = findViewById(R.id.intro);
+        imageView1=findViewById(R.id.img1);
+        imageView2=findViewById(R.id.img2);
         handler = new Handler() {
             @SuppressLint("HandlerLeak")
             @Override
@@ -44,8 +56,13 @@ public class Object_Detail extends AppCompatActivity {
                     case 1:
                         try {
                             //获取结果
-                            Collection result = (Collection) msg.obj;
-
+                            List<Collection> result = (List<Collection>) msg.obj;
+                            Collection r=result.get(0);
+                            view1.setText("藏品名称："+r.getCol_name());
+                            view4.setText("年代："+r.getCol_era());
+                            view5.setText(r.getCol_info());
+                            Glide.with(Object_Detail.this).load(r.getCol_picture()).into(imageView1);
+                            Glide.with(Object_Detail.this).load(r.getCol_picture()).into(imageView2);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -72,7 +89,7 @@ public class Object_Detail extends AppCompatActivity {
                     c=  parseJSONList_Col(s);
                     System.out.println(c.toString());
                     Message msg = new Message();
-                    msg.what = 2;
+                    msg.what = 1;
                     msg.obj=c;
                     handler.sendMessage(msg);
                 }
