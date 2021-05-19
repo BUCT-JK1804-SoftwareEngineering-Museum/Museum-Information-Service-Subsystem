@@ -3,6 +3,7 @@ package com.final_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,6 +20,7 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import okhttp3.Call;
 import okhttp3.FormBody;
@@ -37,7 +39,7 @@ public class NewsDetail extends AppCompatActivity {
     private TextView view7;
     private Handler handler;
     private ImageView imageView1;
-
+    private String mus_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,9 @@ public class NewsDetail extends AppCompatActivity {
         view6 = findViewById(R.id.sd6);
         view7 = findViewById(R.id.sd7);
         imageView1= findViewById(R.id.img1);
-        GetNew ne=new GetNew("首都博物馆");
+        Intent i = getIntent();  //直接获取传过来的intent
+        mus_name = i.getStringExtra("muse_name");
+        GetNew ne=new GetNew(mus_name);
 
         handler = new Handler() {
             @SuppressLint("HandlerLeak")
@@ -62,7 +66,9 @@ public class NewsDetail extends AppCompatActivity {
                         try {
                             //获取结果
                             List<New> result = (List<New>) msg.obj;
-                            New f=result.get(0);
+                            Random rand = new Random();
+                            int k=rand.nextInt(result.size());
+                            New f=result.get(k);
                             view2.setText( "新闻类型："+f.getNew_level());
                             view3.setText( f.getNew_title());
                             view4.setText("发布人："+ f.getNew_publisher());

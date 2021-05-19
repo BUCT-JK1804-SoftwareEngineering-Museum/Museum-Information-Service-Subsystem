@@ -19,6 +19,7 @@
         <activity android:name=".Museum_Detail" />
         <activity android:name=".ListActivity" />
         <activity android:name=".NewsDetail" />
+        <activity android:name=".WComment" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

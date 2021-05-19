@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -29,7 +30,20 @@ public class MainActivity extends AppCompatActivity {
         mRank=(Button)findViewById(R.id.Rank);
         setListeners();
         mlv3 = findViewById(R.id.mainlist);
+        MainAdapter lista = new MainAdapter(  MainActivity.this);
         mlv3.setAdapter(new MainAdapter(MainActivity.this));
+
+        mlv3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = (String) lista.getItem(position);
+                if(s.length() != 1) {
+                    Intent intent = new Intent(MainActivity.this, Museum_Detail.class);
+                    intent.putExtra("muse_name", s);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private void setListeners() {

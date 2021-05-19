@@ -3,6 +3,7 @@ package com.final_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,6 +20,7 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import okhttp3.Call;
 import okhttp3.FormBody;
@@ -35,18 +37,19 @@ public class Object_Detail extends AppCompatActivity {
     private TextView view4;
     private TextView view5;
     private ImageView imageView1;
-    private ImageView imageView2;
+    private String mus_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_object__detail);
-        GetCollection col=new GetCollection("首都博物馆");
+        Intent i = getIntent();  //直接获取传过来的intent
+        mus_name = i.getStringExtra("muse_name");
+        GetCollection col=new GetCollection(mus_name);
         view1 = findViewById(R.id.on);
         view4 = findViewById(R.id.oy);
         view5 = findViewById(R.id.intro);
         imageView1=findViewById(R.id.img1);
-        imageView2=findViewById(R.id.img2);
         handler = new Handler() {
             @SuppressLint("HandlerLeak")
             @Override
@@ -57,12 +60,13 @@ public class Object_Detail extends AppCompatActivity {
                         try {
                             //获取结果
                             List<Collection> result = (List<Collection>) msg.obj;
+                            Random rand = new Random();
+                            int k=rand.nextInt(result.size());
                             Collection r=result.get(0);
                             view1.setText("藏品名称："+r.getCol_name());
                             view4.setText("年代："+r.getCol_era());
                             view5.setText(r.getCol_info());
                             Glide.with(Object_Detail.this).load(r.getCol_picture()).into(imageView1);
-                            Glide.with(Object_Detail.this).load(r.getCol_picture()).into(imageView2);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

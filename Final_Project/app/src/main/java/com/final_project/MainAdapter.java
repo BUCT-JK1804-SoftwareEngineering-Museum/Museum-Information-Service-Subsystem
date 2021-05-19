@@ -1,5 +1,6 @@
 package com.final_project;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,10 @@ import android.widget.TextView;
 public class MainAdapter extends BaseAdapter {
 
     private Context mContext;
-    private final String[] names = {"A","瑷珲历史陈列馆","B","C","D"};
-    private final String[] scores = {"5","4","3","2","1"};
+    private final String[] names = {"中国科学技术馆","中国人民革命军事博物馆","中国航天博物馆","首都博物馆","中国人民抗日战争纪念馆"};
+    private final String[] scores = {"https://cstm.cdstm.cn/","http://www.jb.mil.cn/", "http://www.casc-spacemuseum.com/",
+    "http://www.capitalmuseum.org.cn/",    "http://www.1937china.com/"};
+    private int[] imagesId={R.drawable.img1,R.drawable.img2,R.drawable.img3,R.drawable.img4,R.drawable.img5};
 
     private LayoutInflater mLayoutInflater;
 
@@ -23,7 +26,7 @@ public class MainAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return names.length;
     }
 
     @Override
@@ -42,6 +45,7 @@ public class MainAdapter extends BaseAdapter {
         public TextView Musepos;
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
@@ -57,6 +61,7 @@ public class MainAdapter extends BaseAdapter {
         }
         holder.Musename.setText(names[position]);
         holder.Musepos.setText(scores[position]);
+        holder.img.setImageResource(imagesId[position]);
         return convertView;
     }
 }

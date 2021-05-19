@@ -3,6 +3,7 @@ package com.final_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,6 +20,7 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import okhttp3.Call;
 import okhttp3.FormBody;
@@ -35,19 +37,20 @@ public class Exhibition_Detail extends AppCompatActivity {
     private TextView view4;
     private TextView view5;
     private ImageView imageView1;
-    private ImageView imageView2;
-    int i=0;
+    private String mus_name;
+    private int k=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exhibition__detail);
-        GetExhibition ex=new GetExhibition("首都博物馆");
+        Intent i = getIntent();  //直接获取传过来的intent
+        mus_name = i.getStringExtra("muse_name");
+        GetExhibition ex=new GetExhibition(mus_name);
         view1 = findViewById(R.id.tv_2);
         view3=findViewById(R.id.tv_8);
         view4=findViewById(R.id.tv_4);
         view5=findViewById(R.id.tv_6);
         imageView1=findViewById(R.id.img1);
-        imageView2=findViewById(R.id.img2);
         handler = new Handler() {
             @SuppressLint("HandlerLeak")
             @Override
@@ -58,13 +61,14 @@ public class Exhibition_Detail extends AppCompatActivity {
                         try {
                             //获取结果
                             List<Exhibition> result = (List<Exhibition>) msg.obj;
-                            Exhibition t=result.get(i);
+                            Random rand = new Random();
+                            k=rand.nextInt(result.size());
+                            Exhibition t=result.get(k);
                             view1.setText("展览名称："+t.getExh_name());
                             view3.setText("展览时间："+t.getExh_time());
                             view4.setText("博物馆名称："+t.getMus_name());
                             view5.setText(t.getExh_info());
                             Glide.with(Exhibition_Detail.this).load(t.getExh_picture()).into(imageView1);
-                            Glide.with(Exhibition_Detail.this).load(t.getExh_picture()).into(imageView2);
 
                         } catch (Exception e) {
                             e.printStackTrace();

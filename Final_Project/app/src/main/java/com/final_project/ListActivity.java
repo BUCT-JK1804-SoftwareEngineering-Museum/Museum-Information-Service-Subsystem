@@ -59,11 +59,24 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String s = (String) a.getItem(position);
-                if(s == "瑷珲历史陈列馆"){
+                if(s.length() != 1) {
                     Intent intent = new Intent(ListActivity.this, Museum_Detail.class);
+                    intent.putExtra("muse_name", s);
                     startActivity(intent);
                 }
+
             }
         });
+
+//        mlv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String s = (String) a.getItem(position);
+//                if(s == "瑷珲历史陈列馆"){
+//                    Intent intent = new Intent(ListActivity.this, Museum_Detail.class);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
     }
 }

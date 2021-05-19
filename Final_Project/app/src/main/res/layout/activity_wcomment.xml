@@ -44,7 +44,7 @@
         android:hint="请在此处写下您的评论"
         android:textSize="24sp"
         android:maxLines="10"
-    />
+        />
     <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"

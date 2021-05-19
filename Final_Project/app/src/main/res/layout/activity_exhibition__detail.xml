@@ -78,22 +78,5 @@
         android:textSize="18sp"
         android:text="请在此处输入博物馆简介"
         />
-    <TextView
-        android:id="@+id/tv_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:layout_marginLeft="15dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:text="------展览图片------"
-        android:textColor="#DAA520"
-        />
-    <ImageView
-        android:id="@+id/img2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="565dp"
-        android:layout_centerHorizontal="true"
-        />
+
 </RelativeLayout>

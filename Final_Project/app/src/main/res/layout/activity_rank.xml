@@ -5,61 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <View
-        android:id="@+id/Rank_1"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:background="#ff0033" />
-    <View
-        android:id="@+id/Rank_2"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:background="#ccff66"
-        android:layout_toLeftOf="@id/Rank_1"
-        android:layout_marginRight="20dp"
-        android:layout_alignBottom="@id/Rank_1"/>
-    <View
-        android:id="@+id/Rank_3"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:background="#cc99ff"
-        android:layout_toRightOf="@id/Rank_1"
-        android:layout_marginLeft="20dp"
-        android:layout_alignBottom="@id/Rank_1"/>
-    <TextView
-        android:id="@+id/Tv_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NO.1"
-        android:layout_below="@id/Rank_1"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:id="@+id/Tv_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NO.2"
-        android:layout_below="@id/Rank_2"
-        android:layout_toLeftOf="@id/Tv_1"
-        android:layout_marginRight="90dp"
-        android:textSize="24sp"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:id="@+id/Tv_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NO.3"
-        android:layout_below="@id/Rank_2"
-        android:layout_toRightOf="@id/Tv_1"
-        android:layout_marginLeft="90dp"
-        android:textSize="24sp"
-        android:layout_marginTop="10dp"
-        />
 
     <TextView
         android:id="@+id/Tv_4"
@@ -83,7 +28,7 @@
         android:orientation="vertical">
         <ListView
             android:id="@+id/lv_1"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>

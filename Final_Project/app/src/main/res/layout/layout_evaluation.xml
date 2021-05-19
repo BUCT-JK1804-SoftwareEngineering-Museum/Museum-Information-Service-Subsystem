@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="10dp">
-        <TextView
+        TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="评论编号"
@@ -26,7 +26,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="此处应为用户名"
+            android:text="用户id：10086"
             android:textSize="28sp"
             android:textColor="@color/gray"
             />
@@ -34,7 +34,7 @@
             android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="评分："
+            android:text="评分：5.0分"
             android:layout_marginTop="5dp"
             android:textSize="24sp"
             android:textColor="@color/gray"
@@ -45,14 +45,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="评论："
+            android:text="评论：博物馆很棒，下次还会再来！"
             android:textColor="@color/gray"
             android:textSize="24sp" />
         <TextView
             android:id="@+id/tv_commentstime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="评论时间："
+            android:text="评论时间：2021-05-21"
             android:textSize="18sp"
             android:layout_marginTop="5dp"
             android:textColor="@color/gray"

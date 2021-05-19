@@ -15,7 +15,7 @@
             android:layout_width="300dp"
             android:layout_margin="10dp"
             android:layout_height="40dp"
-            android:text="博物馆信息服务子系统"
+            android:text="博物馆推荐"
             android:textColor="@color/black"
             android:textSize="28sp"
             />
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="5">
-        <ListView
+         <ListView
             android:id="@+id/mainlist"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>

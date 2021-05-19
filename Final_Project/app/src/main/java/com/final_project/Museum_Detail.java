@@ -33,7 +33,7 @@ public class Museum_Detail extends AppCompatActivity {
     private Button mdobj;
     private Button mdeva;
     private Button mcom;
-    Museum mus;
+    private String mus_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,10 @@ public class Museum_Detail extends AppCompatActivity {
         mdeva = (Button) findViewById(R.id.wevaluation);
         mcom = (Button) findViewById(R.id.vcomment);
         setListeners();
+        Intent i = getIntent();  //直接获取传过来的intent
+        mus_name = i.getStringExtra("muse_name");
 //        int i = 0;
-        String mus_name = "首都博物馆";
+//        String mus_name = "首都博物馆";
         GetMus m = new GetMus(mus_name);
 
         handler = new Handler() {
@@ -149,6 +151,7 @@ public class Museum_Detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Museum_Detail.this, NewsDetail.class);
+                intent.putExtra("muse_name", mus_name);
                 startActivity(intent);
             }
         });
@@ -156,6 +159,7 @@ public class Museum_Detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Museum_Detail.this, Exhibition_Detail.class);
+                intent.putExtra("muse_name", mus_name);
                 startActivity(intent);
             }
         });
@@ -163,6 +167,7 @@ public class Museum_Detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Museum_Detail.this, Object_Detail.class);
+                intent.putExtra("muse_name", mus_name);
                 startActivity(intent);
             }
         });
@@ -177,6 +182,7 @@ public class Museum_Detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Museum_Detail.this,Evaluation.class);
+                intent.putExtra("muse_name", mus_name);
                 startActivity(intent);
             }
         });
